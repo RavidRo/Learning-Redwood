@@ -13,6 +13,7 @@ model Post {
   title     String
   body      String
   createdAt DateTime  @default(now())
+  comments  Comment[]
 }
 
 model Contact {
@@ -31,4 +32,13 @@ model User {
   salt                  String
   resetToken            String?
   resetTokenExpiresAt   DateTime?
+}
+
+model Comment {
+  id        Int       @id @default(autoincrement())
+  name      String
+  body      String
+  createdAt DateTime  @default(now())
+  post      Post      @relation(fields: [postId], references: [id])
+  postId    Int
 }
