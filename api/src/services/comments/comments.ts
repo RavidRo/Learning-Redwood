@@ -2,8 +2,8 @@ import type { QueryResolvers, MutationResolvers } from 'types/graphql'
 
 import { db } from 'src/lib/db'
 
-export const comments: QueryResolvers['comments'] = () => {
-  return db.comment.findMany()
+export const comments: QueryResolvers['comments'] = ({ postId }) => {
+  return db.comment.findMany({ where: { postId } })
 }
 
 // export const comment: QueryResolvers['comment'] = ({ id }) => {

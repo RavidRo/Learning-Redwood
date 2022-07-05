@@ -22,7 +22,7 @@ describe('Comment', () => {
 
     expect(screen.getByText(COMMENT.name)).toBeInTheDocument()
     expect(screen.getByText(COMMENT.body)).toBeInTheDocument()
-    const dateExpect = screen.getByText('2 January 2020')
+    const dateExpect = screen.getByText('1 January 2020')
     expect(dateExpect).toBeInTheDocument()
     expect(dateExpect.nodeName).toEqual('TIME')
     expect(dateExpect).toHaveAttribute('datetime', COMMENT.createdAt)
